@@ -1,0 +1,4 @@
+interface:
+  display_name: "Ebook Render PDF"
+  short_description: "Turn a PDF book into Chinese knowledge-summary PDFs."
+  default_prompt: "Use $ebook-render-pdf to turn this PDF ebook into a Chinese knowledge-summary LaTeX note with OCR when needed, preserved high-value figures, and a rendered PDF."

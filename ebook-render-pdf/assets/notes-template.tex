@@ -1,0 +1,101 @@
+\documentclass[a4paper]{article}
+
+\usepackage[fontset=fandol]{ctex}
+\usepackage{amsmath, amssymb}
+\usepackage{graphicx}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage[most]{tcolorbox}
+\usepackage{etoolbox}
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{subcaption}
+\usepackage{float}
+\usepackage{tikz}
+\IfFileExists{pgfplots.sty}{
+    \usepackage{pgfplots}
+    \pgfplotsset{compat=1.18}
+}{}
+
+\newtcolorbox{knowledgebox}[1]{
+    enhanced, colback=blue!5!white, colframe=blue!75!black, colbacktitle=blue!75!black,
+    coltitle=white, fonttitle=\bfseries, title=#1, attach boxed title to top left={yshift=-2mm, xshift=2mm},
+    boxrule=1pt, sharp corners
+}
+
+\newtcolorbox{importantbox}[1]{
+    enhanced, colback=yellow!10!white, colframe=yellow!80!black, colbacktitle=yellow!80!black,
+    coltitle=black, fonttitle=\bfseries, title=#1, sharp corners
+}
+
+\newtcolorbox{warningbox}[1]{
+    enhanced, colback=red!5!white, colframe=red!75!black, colbacktitle=red!75!black,
+    coltitle=white, fonttitle=\bfseries, title=#1, sharp corners
+}
+
+\lstset{
+    language=Python,
+    basicstyle=\ttfamily\small,
+    keywordstyle=\color{blue},
+    stringstyle=\color{red!60!black},
+    commentstyle=\color{green!60!black},
+    breaklines=true,
+    frame=single,
+    numbers=left,
+    numberstyle=\tiny\color{gray},
+    captionpos=b,
+    extendedchars=false
+}
+
+\newcommand{\notetitle}{[在此填写知识点总结标题]}
+\newcommand{\noteauthors}{Codex}
+\newcommand{\notedate}{\today}
+\newcommand{\booktitle}{[在此填写原书标题]}
+\newcommand{\bookauthors}{[在此填写原书作者]}
+\newcommand{\bookpages}{[在此填写页数]}
+\newcommand{\booksource}{[在此填写 PDF 文件名或来源]}
+\newcommand{\bookcoverpath}{}
+
+\begin{document}
+
+\begin{titlepage}
+\centering
+{\Large 电子书知识点总结\par}
+\vspace{1.2cm}
+{\huge\bfseries \notetitle\par}
+\vspace{0.8cm}
+{\large \noteauthors\par}
+\vspace{0.3cm}
+{\large \notedate\par}
+\vspace{1.2cm}
+
+\ifdefempty{\bookcoverpath}{
+{\small 若原书没有独立封面图片，可使用首页渲染图代替。\par}
+}{
+\includegraphics[width=0.82\textwidth,height=0.45\textheight,keepaspectratio]{\bookcoverpath}\par
+}
+
+\vfill
+\begin{tcolorbox}[width=0.9\textwidth, colback=black!2!white, colframe=black!60, sharp corners]
+\textbf{原书标题}：\booktitle\par
+\textbf{作者}：\bookauthors\par
+\textbf{页数}：\bookpages\par
+\textbf{来源}：\booksource
+\end{tcolorbox}
+\end{titlepage}
+
+\tableofcontents
+\newpage
+
+%% Replace this block with the generated notes.
+%% Keep figures outside knowledgebox/importantbox/warningbox.
+%% For any figure taken from the book, add a same-page footnote with the exact source page.
+%% Example:
+%% \begin{figure}[H]
+%% \centering
+%% \includegraphics[width=\textwidth]{figures/example.png}
+%% \caption{系统框架图\protect\footnotemark}
+%% \end{figure}
+%% \footnotetext{原书第 42 页。若为裁剪图，页码仍对应原页。}
+
+\end{document}
