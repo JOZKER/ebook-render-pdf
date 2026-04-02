@@ -22,8 +22,6 @@
 
 ## 📦 环境依赖与网络配置
 
-要在你的 macOS (如 MacBook Air) 或其他本地环境中运行此 Skill，需要配置以下核心 Python 依赖：
-
 ```bash
 python -m pip install pypdf pymupdf ocrmypdf
 ```
